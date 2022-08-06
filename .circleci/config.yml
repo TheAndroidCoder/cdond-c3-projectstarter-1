@@ -7,12 +7,12 @@ orbs:
 commands:
 
 
-  notify_on_slack:
-    steps:
-      - slack/notify:
-          event: fail
-          channel: C03SEEP6B5L
-          template: basic_fail_1
+  # notify_on_slack:
+  #   steps:
+  #     - slack/notify:
+  #         event: fail
+  #         channel: C03SEEP6B5L
+  #         template: basic_fail_1
 
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
@@ -77,7 +77,13 @@ jobs:
       - save_cache:
           paths: [backend/node_modules]
           key: backend-build
-
+  
+  notify_on_slack:
+    steps:
+      - slack/notify:
+          event: fail
+          channel: C03SEEP6B5L
+          template: basic_fail_1
       - notify_on_slack
 
 #   test-frontend:
