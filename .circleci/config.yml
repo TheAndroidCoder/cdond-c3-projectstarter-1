@@ -5,9 +5,8 @@ orbs:
 
 
 commands:
-
-
-  notify_on_slack:
+  commands:
+    notify_on_slack:
     steps:
       - slack/notify:
           event: fail
@@ -79,7 +78,7 @@ jobs:
           key: backend-build
   
 
-      - notify_on_slack:
+      - notify_on_slack
 
 #   test-frontend:
 #     docker:
