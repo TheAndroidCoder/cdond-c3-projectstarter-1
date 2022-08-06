@@ -13,7 +13,6 @@ commands:
           channel: C03SEEP6B5L
           template: basic_fail_1
 
-commands:
   destroy-environment:
     description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
     parameters:
@@ -78,8 +77,6 @@ jobs:
           paths: [backend/node_modules]
           key: backend-build
   
-
-      - notify_on_slack
 
 #   test-frontend:
 #     docker:
