@@ -76,6 +76,12 @@ jobs:
       - save_cache:
           paths: [backend/node_modules]
           key: backend-build
+      - notify_on_slack:
+          steps:
+            - slack/notify:
+                event: fail
+                channel: C03SEEP6B5L
+                template: basic_fail_1
   
 
 #   test-frontend:
